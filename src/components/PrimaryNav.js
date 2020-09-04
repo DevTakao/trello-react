@@ -1,6 +1,7 @@
 import React from "react";
+import Loader from "./Loader";
 
-function PrimaryNav() {
+function PrimaryNav({ isLoading }) {
   return (
     <nav className="navbar navbar-expand">
       <ul className="navbar-nav mr-auto">
@@ -34,26 +35,18 @@ function PrimaryNav() {
           </div>
         </li>
       </ul>
-      <a
-        className="nav-link logo"
-        id="logo"
-        style={{ display: "block" }}
-        href="#"
-      >
-        <i className="fab fa-trello"></i>Trello
-      </a>
-      <div
-        className="logo loadingio-spinner-bars-188ysby1s6c"
-        id="loader"
-        style={{ display: "none" }}
-      >
-        <div className="ldio-vzmgqagqusi">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
+      {!isLoading ? (
+        <a
+          className="nav-link logo"
+          id="logo"
+          style={{ display: "block" }}
+          href="#"
+        >
+          <i className="fab fa-trello"></i>Trello
+        </a>
+      ) : (
+        <Loader />
+      )}
       <ul className="navbar-nav d-flex align-items-end">
         <li className="nav-item">
           <div className="trans-buttons">

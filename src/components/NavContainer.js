@@ -3,10 +3,10 @@ import PrimaryNav from "./PrimaryNav";
 import SecondaryNav from "./SecondaryNav";
 import "./NavContainer.css";
 
-function NavContainer() {
+function NavContainer(props) {
   return (
     <div>
-      <PrimaryNav />
+      <PrimaryNav isLoading={props.isLoading} />
       <SecondaryNav />
     </div>
   );
