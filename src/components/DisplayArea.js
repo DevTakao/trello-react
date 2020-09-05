@@ -31,12 +31,12 @@ function DisplayArea({ setIsLoading }) {
       <div className="row">
         <div className="col-12">
           <div className="list-wrapper d-flex flex-row px-3">
-            {lists.length &&
+            {!!lists.length &&
               lists.map(
                 (list) =>
                   list.status === 1 && <TrelloList key={list.id} list={list} />
               )}
-            {lists.length && <AddNewList />}
+            {!!lists.length && <AddNewList />}
           </div>
         </div>
       </div>

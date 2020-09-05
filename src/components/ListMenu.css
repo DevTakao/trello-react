@@ -1,0 +1,35 @@
+.listmenu-container {
+  background-color: #ddd;
+  display: block;
+  max-width: 300px;
+  height: auto;
+  position: relative;
+  border-radius: 0.2em;
+}
+
+.listmenu-head {
+  user-select: none;
+  font-weight: bold;
+}
+
+.listmenu-close-btn {
+  font-size: 1.2em;
+  position: absolute;
+  right: 0;
+  top: 0.6em;
+  transition: transform 0.3s ease-out;
+}
+
+.listmenu-close-btn:hover {
+  transform: rotate(360deg);
+  transition: transform 0.3s ease-out;
+}
+
+.listmenu-btn {
+  display: block;
+  line-height: 2em;
+  padding-left: 1em;
+}
+.listmenu-btn:hover {
+  background-color: #aaa;
+}
