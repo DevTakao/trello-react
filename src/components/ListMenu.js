@@ -1,14 +1,42 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./ListMenu.css";
 
-function ListMenu() {
+function ListMenu(props) {
+  const { list, position, setOpenMenu } = props;
+  const modalPosition = {
+    top: `${position.clientY - 80}px`,
+    left: `${
+      window.innerWidth - position.clientX < 300
+        ? position.clientX - (320 - window.innerWidth + position.clientX)
+        : position.clientX
+    }px`,
+  };
+  const listMenuRef = useRef(null);
+
+  useEffect(() => {
+    console.log("useffect called");
+    const closeMenu = (e) => {
+      if (e.target !== listMenuRef) {
+        setOpenMenu(false);
+      }
+    };
+    window.addEventListener("mousedown", closeMenu);
+
+    return () => {
+      window.removeEventListener("mousedown", closeMenu);
+    };
+  }, []);
+
   return (
-    <div className="ListMenu">
-      <div className="listmenu-container container d-flex flex-column py-3">
+    <div className="ListMenu" ref={listMenuRef}>
+      <div
+        className="listmenu-container container d-flex flex-column py-3"
+        style={modalPosition}
+      >
         <div className="row listmenu-head">
           <div className="text-center col-12">List Actions</div>
           <div className="col-2 text-center listmenu-close-btn">
-            <i className="fa fa-close"></i>{" "}
+            <i className="fa fa-close" onClick={() => setOpenMenu(false)}></i>{" "}
           </div>
         </div>
         <div className="row listmenu-head-hr">

@@ -5,6 +5,7 @@ import ListMenu from "./ListMenu";
 function TrelloList({ list }) {
   const cards = list.cards || [];
   const [openMenu, setOpenMenu] = useState(false);
+  const [clickPosition, setClickPosition] = useState({});
   return (
     <div
       className="card-list bg-dark pl-2 pr-2 py-2 mr-3 mb-2 align-self-start field-element"
@@ -14,7 +15,10 @@ function TrelloList({ list }) {
         <h5 className="">{list.title}</h5>
         <span
           className="more-options-button small"
-          onClick={() => setOpenMenu(true)}
+          onClick={(e) => {
+            setOpenMenu(true);
+            setClickPosition({ clientX: e.clientX, clientY: e.clientY });
+          }}
         >
           •••
         </span>
@@ -32,6 +36,13 @@ function TrelloList({ list }) {
           <i className="fas fa-file-export small" aria-hidden="true"></i>
         </span>
       </div>
+      {openMenu && (
+        <ListMenu
+          list={list}
+          position={clickPosition}
+          setOpenMenu={setOpenMenu}
+        />
+      )}
     </div>
   );
 }
