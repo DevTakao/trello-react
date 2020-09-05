@@ -6,7 +6,7 @@ import "./NavContainer.css";
 function NavContainer(props) {
   return (
     <div>
-      <PrimaryNav isLoading={props.isLoading} />
+      <PrimaryNav />
       <SecondaryNav />
     </div>
   );

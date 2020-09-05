@@ -7,7 +7,7 @@ function SecondaryNav() {
         <li className="nav-item">
           <div className="trans-buttons">
             <span id="boardName">Trello Clone</span>
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="far fa-star"></i>
             </a>
           </div>
@@ -21,7 +21,7 @@ function SecondaryNav() {
         <span className="ml-1 mr-1">|</span>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" style={{ fontWeight: "normal" }} href="#">
+            <a className="nav-link" style={{ fontWeight: "normal" }} href="##">
               {" "}
               <i className="fa fa-group"></i> Team Visible
             </a>
@@ -33,7 +33,7 @@ function SecondaryNav() {
         </li>
         <li className="nav-item ml-1">
           <div className="trans-buttons">
-            <a className="nav-link" style={{ fontWeight: "normal" }} href="#">
+            <a className="nav-link" style={{ fontWeight: "normal" }} href="##">
               Invite
             </a>
           </div>
@@ -42,14 +42,14 @@ function SecondaryNav() {
       <ul className="navbar-nav d-flex align-items-end">
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" style={{ fontWeight: "normal" }} href="#">
+            <a className="nav-link" style={{ fontWeight: "normal" }} href="##">
               <i className="fas fa-concierge-bell"></i> Butler (1 Tip){" "}
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" style={{ fontWeight: "normal" }} href="#">
+            <a className="nav-link" style={{ fontWeight: "normal" }} href="##">
               <span className="small">&bull;&bull;&bull;</span> Show Menu
             </a>
           </div>

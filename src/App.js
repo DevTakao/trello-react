@@ -3,12 +3,16 @@ import "./App.css";
 import NavContainer from "./components/NavContainer";
 import DisplayArea from "./components/DisplayArea";
 
+export const UserLoading = React.createContext(false);
+
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="App">
-      <NavContainer isLoading={isLoading} />
-      <DisplayArea setIsLoading={setIsLoading} />
+      <UserLoading.Provider value={isLoading}>
+        <NavContainer />
+        <DisplayArea setIsLoading={setIsLoading} />
+      </UserLoading.Provider>
     </div>
   );
 }

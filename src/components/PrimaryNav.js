@@ -1,27 +1,31 @@
 import React from "react";
 import Loader from "./Loader";
+import { useContext } from "react";
+import { UserLoading } from "../App";
 
-function PrimaryNav({ isLoading }) {
+function PrimaryNav() {
+  const isLoading = useContext(UserLoading);
+
   return (
     <nav className="navbar navbar-expand">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fas fa-th"></i>
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fas fa-home"></i>
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fab fa-trello"></i> Boards
             </a>
           </div>
@@ -40,7 +44,7 @@ function PrimaryNav({ isLoading }) {
           className="nav-link logo"
           id="logo"
           style={{ display: "block" }}
-          href="#"
+          href="##"
         >
           <i className="fab fa-trello"></i>Trello
         </a>
@@ -50,28 +54,28 @@ function PrimaryNav({ isLoading }) {
       <ul className="navbar-nav d-flex align-items-end">
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fas fa-plus"></i>
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fas fa-info-circle"></i>
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="##">
               <i className="fas fa-bell"></i>
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a href="#" style={{ border: "none", display: "block" }}>
+            <a href="##" style={{ border: "none", display: "block" }}>
               <img
                 src="https://www.w3schools.com/howto/img_avatar.png"
                 style={{ height: "100%", borderRadius: "50%" }}

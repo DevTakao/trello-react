@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TrelloList from "./TrelloList";
 import "./DisplayArea.css";
+import AddNewList from "./AddNewList";
 
 function DisplayArea({ setIsLoading }) {
   const [lists, setLists] = useState([]);
@@ -35,6 +36,7 @@ function DisplayArea({ setIsLoading }) {
                 (list) =>
                   list.status === 1 && <TrelloList key={list.id} list={list} />
               )}
+            {lists.length && <AddNewList />}
           </div>
         </div>
       </div>
