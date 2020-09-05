@@ -14,7 +14,6 @@ function ListMenu(props) {
   const listMenuRef = useRef(null);
 
   useEffect(() => {
-    console.log("useffect called");
     const closeMenu = (e) => {
       if (e.target !== listMenuRef) {
         setOpenMenu(false);
@@ -29,6 +28,7 @@ function ListMenu(props) {
 
   return (
     <div className="ListMenu" ref={listMenuRef}>
+      {console.log(list)}
       <div
         className="listmenu-container container d-flex flex-column py-3"
         style={modalPosition}
