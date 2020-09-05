@@ -8,9 +8,9 @@ function DisplayArea({ setIsLoading }) {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    const fetchData = () => {
+    const fetchData = async () => {
       setIsLoading(true);
-      axios
+      await axios
         .get("https://trello-clone-ppm.herokuapp.com/list")
         .then((res) => {
           setLists(() => {
