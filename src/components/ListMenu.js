@@ -3,11 +3,13 @@ import "./ListMenu.css";
 
 function ListMenu(props) {
   const { list, position, setOpenMenu } = props;
+  const listMenuWidth = 300;
   const modalPosition = {
     top: `${position.clientY - 80}px`,
     left: `${
-      window.innerWidth - position.clientX < 300
-        ? position.clientX - (320 - window.innerWidth + position.clientX)
+      window.innerWidth - position.clientX < listMenuWidth
+        ? position.clientX -
+          (listMenuWidth + 16 - window.innerWidth + position.clientX)
         : position.clientX
     }px`,
   };
@@ -15,7 +17,7 @@ function ListMenu(props) {
 
   useEffect(() => {
     const closeMenu = (e) => {
-      if (e.target !== listMenuRef) {
+      if (!listMenuRef.current.contains(e.target)) {
         setOpenMenu(false);
       }
     };
