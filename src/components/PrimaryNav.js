@@ -1,11 +1,11 @@
 import React from "react";
 import Loader from "./Loader";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { UserLoading } from "../App";
 
 function PrimaryNav() {
   const isLoading = useContext(UserLoading);
-
+  const [searchInput, setSearchInput] = useState("");
   return (
     <nav className="navbar navbar-expand">
       <ul className="navbar-nav mr-auto">
@@ -32,7 +32,12 @@ function PrimaryNav() {
         </li>
         <li className="nav-item">
           <div className="trans-buttons d-inline-flex" id="searchField">
-            <input type="text" name="search" value="" />
+            <input
+              type="text"
+              name="search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
             <i className="fas fa-search showOnInit"></i>
             <i className="fas fa-share showOnFocus"></i>
             <i className="fas fa-times showOnFocus"></i>
