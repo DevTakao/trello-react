@@ -2,6 +2,7 @@ import React from "react";
 import Loader from "./Loader";
 import { useState, useContext } from "react";
 import { UserLoading } from "../App";
+import "./PrimaryNav.css";
 
 function PrimaryNav() {
   const isLoading = useContext(UserLoading);
