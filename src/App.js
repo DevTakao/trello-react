@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import NavContainer from "./components/NavContainer";
 import DisplayArea from "./components/DisplayArea";
+import SmolUserBall from "./components/SmolUserBall";
 
 export const UserLoading = React.createContext(false);
 
@@ -13,6 +14,7 @@ function App() {
         <NavContainer />
         <DisplayArea setIsLoading={setIsLoading} />
       </UserLoading.Provider>
+      {/* <SmolUserBall /> */}
     </div>
   );
 }

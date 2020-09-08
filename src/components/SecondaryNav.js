@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./SecondaryNav.css";
+import axios from "axios";
+import SmolUserBall from "./SmolUserBall";
+import SmolUserBallTail from "./SmolUserBallTail";
 
 function SecondaryNav() {
+  const [accounts, setAccounts] = useState([]);
+  useEffect(() => {
+    const fetchAccounts = async () => {
+      await axios
+        .get("https://trello-clone-ppm.herokuapp.com/account")
+        .then((res) => {
+          setAccounts([...res.data]);
+        })
+        .catch((err) => {
+          setAccounts([]);
+          console.log(err);
+        });
+    };
+    fetchAccounts();
+  }, []);
+
   return (
     <nav className="navbar navbar-expand secondarynav">
       <ul className="navbar-nav mr-auto">
@@ -30,7 +49,18 @@ function SecondaryNav() {
         </li>
         <span className="ml-1 mr-1">|</span>
         <li>
-          <div className="trans-buttons">{/* account avatars here */}</div>
+          <div className="trans-buttons">
+            {!!accounts.length &&
+              (accounts.length > 5
+                ? accounts.slice(0, 5)
+                : accounts
+              ).map((acc) => (
+                <SmolUserBall key={acc.username} name={acc.name} />
+              ))}
+            {accounts.length > 5 && (
+              <SmolUserBallTail count={accounts.length - 5} />
+            )}
+          </div>
         </li>
         <li className="nav-item ml-1">
           <div className="trans-buttons">
