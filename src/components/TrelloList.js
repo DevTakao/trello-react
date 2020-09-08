@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TrelloCard from "./TrelloCard";
 import ListMenu from "./ListMenu";
 
-function TrelloList({ list }) {
+function TrelloList({ list, setLists, setIsLoading }) {
   const cards = list.cards || [];
   const [openMenu, setOpenMenu] = useState(false);
   const [clickPosition, setClickPosition] = useState({});
@@ -41,6 +41,8 @@ function TrelloList({ list }) {
           list={list}
           position={clickPosition}
           setOpenMenu={setOpenMenu}
+          setLists={setLists}
+          setIsLoading={setIsLoading}
         />
       )}
     </div>

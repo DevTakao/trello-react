@@ -1,0 +1,11 @@
+.closeNewListInput {
+  margin-top: 0 !important;
+  border-radius: 0.25em;
+  background-color: rgba(223, 223, 223, 0.3);
+  color: #eee;
+  text-decoration: none;
+  display: block;
+  height: 2.5em;
+  line-height: 2.5em;
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@
   position: absolute;
   border-radius: 0.2em;
   color: #333 !important;
+  z-index: 999;
 }
 
 .listmenu-head {
@@ -32,6 +33,7 @@
   display: block;
   line-height: 2em;
   padding-left: 1em;
+  cursor: pointer;
 }
 .listmenu-btn:hover {
   background-color: #aaa;

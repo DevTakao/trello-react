@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import "./ListMenu.css";
+import Axios from "axios";
 
 function ListMenu(props) {
-  const { list, position, setOpenMenu } = props;
+  const { list, position, setOpenMenu, setLists, setIsLoading } = props;
   const listMenuWidth = 300;
   const modalPosition = {
     top: `${position.clientY - 80}px`,
@@ -21,12 +22,40 @@ function ListMenu(props) {
         setOpenMenu(false);
       }
     };
-    window.addEventListener("mousedown", closeMenu);
+    document.addEventListener("mousedown", closeMenu);
 
     return () => {
-      window.removeEventListener("mousedown", closeMenu);
+      document.removeEventListener("mousedown", closeMenu);
     };
   }, []);
+
+  const archiveThisList = (_id) => {
+    if (window.confirm("Do you actually want to archive this list?")) {
+      requestArchiveList(_id);
+    }
+  };
+
+  const requestArchiveList = async (_id) => {
+    setIsLoading(true);
+    await Axios.put(
+      `https://trello-clone-ppm.herokuapp.com/list/${_id}/status/2`
+    )
+      .then((res) => {
+        console.log(res);
+        updateUI(_id);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
+  const updateUI = (_id) => {
+    setLists((prevLists) => {
+      return prevLists.filter((list) => list.id !== _id);
+    });
+  };
 
   return (
     <div className="ListMenu" ref={listMenuRef}>
@@ -82,7 +111,13 @@ function ListMenu(props) {
         </div>
         <div className="row listmenu-tail">
           <div className="col-12">
-            <div className="listmenu-btn">Archive This List</div>
+            <div
+              className="listmenu-btn"
+              //   onClick={(e) => archiveThisList(list.id, e.target)}
+              onClick={() => archiveThisList(list.id)}
+            >
+              Archive This List
+            </div>
           </div>
         </div>
       </div>
