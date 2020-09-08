@@ -28,7 +28,7 @@ function TrelloList({ list, setLists, setIsLoading }) {
           cards.map((card) => <TrelloCard key={card.id} card={card} />)}
       </div>
       <div className="list-tail mt-2 ml-1 d-flex flex-row justify-content-between">
-        <span className="list-tail-btn">
+        <span className="list-tail-btn add-card-btn flex-fill mr-1">
           <i className="fas fa-plus small" aria-hidden="true"></i> Add Another
           Card
         </span>
