@@ -49,6 +49,7 @@ function SecondaryNav() {
         </li>
         <span className="ml-1 mr-1">|</span>
         <li>
+          {/* Account avatar balls */}
           <div className="trans-buttons">
             {!!accounts.length &&
               (accounts.length > 5

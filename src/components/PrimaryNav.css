@@ -1,0 +1,73 @@
+.trans-buttons input,
+.trans-buttons input:focus {
+  outline: 0;
+  border: 1px solid grey;
+  border-right: none;
+}
+
+.trans-buttons input {
+  border-radius: 0.25em 0 0 0.25em;
+  width: 10em;
+  transition: width 0.3s;
+  margin-left: 0.15em;
+  background-color: var(--transcolor2);
+}
+
+.trans-buttons input:focus {
+  background-color: white;
+}
+
+.fa-search,
+.fa-share,
+.fa-times {
+  display: inline-block;
+  text-align: center;
+}
+
+.fa-search {
+  background-color: var(--transcolor2);
+  height: 100%;
+  width: 1.8em;
+  border: 1px solid grey;
+  border-left: none;
+  border-radius: 0 0.25em 0.25em 0;
+}
+
+.fa-share,
+.fa-times {
+  background-color: #fff;
+  height: 100%;
+  width: 1.8em;
+  border: 1px solid grey;
+  border-left: none;
+}
+
+.fa-times {
+  border-radius: 0 0.25em 0.25em 0;
+}
+
+.fa-share {
+  border-right: none;
+}
+
+.trans-buttons a:hover {
+  background-color: #ddd;
+}
+.showOnFocus {
+  display: none;
+}
+.showOnInit {
+  display: inline-block;
+}
+.trans-buttons input:focus {
+  width: 20em;
+  transition: width 0.3s;
+}
+
+.trans-buttons input:focus ~ .showOnInit {
+  display: none;
+}
+
+.trans-buttons input:focus ~ .showOnFocus {
+  display: inline-block;
+}

@@ -45,6 +45,8 @@ function PrimaryNav() {
           </div>
         </li>
       </ul>
+
+      {/* Loading Animation */}
       {!isLoading ? (
         <a
           className="nav-link logo"
@@ -57,6 +59,7 @@ function PrimaryNav() {
       ) : (
         <Loader />
       )}
+
       <ul className="navbar-nav d-flex align-items-end">
         <li className="nav-item">
           <div className="trans-buttons">
