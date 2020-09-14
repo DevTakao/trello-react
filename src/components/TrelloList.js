@@ -42,7 +42,7 @@ function TrelloList({ list, setLists, setIsLoading }) {
       className="card-list bg-dark pl-2 pr-2 py-2 mr-3 mb-2 align-self-start field-element"
       id="138"
     >
-      <div className="list-head d-flex justify-content-between">
+      <div className="list-head d-flex justify-content-between mx-1 pb-1">
         {listRenameInput ? (
           <form
             className="list-rename-form"
