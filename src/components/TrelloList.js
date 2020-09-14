@@ -13,7 +13,11 @@ function TrelloList({ list, setLists, setIsLoading }) {
 
   const handleListRename = (e) => {
     e.preventDefault();
-    requestListRename(listRenameValue);
+    if (listRenameValue.trim() !== list.title) {
+      requestListRename(listRenameValue);
+    } else {
+      setListRenameValue(list.title);
+    }
     // console.log(listRenameValue);
     setListRenameInput(false);
   };
