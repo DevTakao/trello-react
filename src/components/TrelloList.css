@@ -1,1 +1,57 @@
+.list-head h5 {
+  width: 90%;
+}
 
+.list-body {
+  max-height: 25em;
+  overflow-y: auto;
+  /* overflow-y: scroll; */
+  padding: 0 0.2em;
+}
+
+.list-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.list-body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+.list-body::-webkit-scrollbar-thumb {
+  background: #e9e9e9;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.list-body::-webkit-scrollbar-thumb:hover {
+  background: #232323;
+}
+
+.list-head {
+  position: relative;
+}
+
+.more-options-button {
+  position: absolute;
+  right: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2em;
+  text-align: center;
+  border-radius: 0.25em;
+}
+
+.more-options-button:hover {
+  background-color: #ddd;
+  color: #333;
+  cursor: pointer;
+}
+
+.more-options-button:active {
+  background-color: #aaa;
+}

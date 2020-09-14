@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TrelloCard from "./TrelloCard";
 import ListMenu from "./ListMenu";
+import "./TrelloList.css";
 
 function TrelloList({ list, setLists, setIsLoading }) {
   const cards = list.cards || [];

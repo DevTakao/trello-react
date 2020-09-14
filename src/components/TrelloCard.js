@@ -1,4 +1,5 @@
 import React from "react";
+import "./TrelloCard.css";
 
 function TrelloCard({ card }) {
   return (

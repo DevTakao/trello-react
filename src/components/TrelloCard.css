@@ -1,0 +1,36 @@
+.trello-card {
+  width: 100%;
+  margin: auto;
+  background-color: #6f6f6f;
+  box-shadow: 1px 1px 1px 1.2px #222;
+  position: relative;
+}
+
+.trello-card:hover {
+  background-color: #ddd;
+  color: #222;
+  cursor: pointer;
+}
+
+.trello-card-label {
+  display: block;
+  width: 2.5em;
+  height: 0.5em;
+  background-color: green;
+  border-radius: 0.5em;
+  border: 0.07em outset #ddd;
+}
+
+.overlay-edit-button {
+  position: absolute;
+  right: 1em;
+  display: none;
+}
+
+.trello-card:hover .overlay-edit-button {
+  display: inline-block;
+}
+
+.overlay-edit-button:hover {
+  transform: scale(1.3);
+}
