@@ -36,35 +36,3 @@
   color: #333;
   cursor: pointer;
 }
-
-#newlist-field {
-  margin-top: 0.5em;
-  box-shadow: 2px 2px 3px 2px #121212;
-  height: auto;
-  overflow-y: auto;
-  background-color: #64696e;
-}
-
-#newlist-field input {
-  width: 100%;
-  line-height: 1.8em;
-}
-
-.newListAction:first-child {
-  background-color: #8f9cb0;
-  color: #eee;
-}
-
-.newListAction:first-child:hover {
-  background-color: #b6d9e3;
-  color: #222;
-}
-
-.newListAction:last-child {
-  color: #eee;
-}
-
-.newListAction:last-child:hover {
-  background-color: #eee;
-  color: #e64239;
-}
