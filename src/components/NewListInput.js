@@ -73,6 +73,7 @@ function NewListInput({
           value={newListInputValue}
           onChange={(e) => setNewListInputValue(e.target.value)}
           style={{ margin: "auto" }}
+          autoFocus
         />
         <div className="d-flex flex-row mt-2 ml-1 py-1">
           <span
