@@ -10,7 +10,7 @@ function DisplayArea({ setIsLoading }) {
   const [showNewListInput, setShowNewListInput] = useState(false);
 
   useEffect(() => {
-    console.log("lists refreshed");
+    console.log("Lists Refreshed!");
     const fetchData = async () => {
       setIsLoading(true);
       await axios

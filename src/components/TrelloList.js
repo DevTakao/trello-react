@@ -1,19 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TrelloCard from "./TrelloCard";
 import ListMenu from "./ListMenu";
 import "./TrelloList.css";
+import Axios from "axios";
 
 function TrelloList({ list, setLists, setIsLoading }) {
   const cards = list.cards || [];
   const [openMenu, setOpenMenu] = useState(false);
   const [clickPosition, setClickPosition] = useState({});
+  const [listRenameInput, setListRenameInput] = useState(false);
+  const [listRenameValue, setListRenameValue] = useState(list.title);
+
+  const handleListRename = (e) => {
+    e.preventDefault();
+    requestListRename(listRenameValue);
+    // console.log(listRenameValue);
+    setListRenameInput(false);
+  };
+
+  const requestListRename = async (listName) => {
+    setIsLoading(true);
+    await Axios.put(`https://trello-clone-ppm.herokuapp.com/list/${list.id}`, {
+      title: listName,
+      position: list.position,
+      status: 1,
+    })
+      .then((res) => {
+        console.log(res);
+        console.log("List Rename Successful!");
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+        setListRenameValue(list.title);
+      });
+  };
+
   return (
     <div
       className="card-list bg-dark pl-2 pr-2 py-2 mr-3 mb-2 align-self-start field-element"
       id="138"
     >
       <div className="list-head d-flex justify-content-between">
-        <h5 className="">{list.title}</h5>
+        {listRenameInput ? (
+          <form
+            className="list-rename-form"
+            onSubmit={(e) => handleListRename(e)}
+          >
+            <input
+              className="list-rename-input"
+              type="text"
+              value={listRenameValue}
+              onChange={(e) => setListRenameValue(e.target.value)}
+              onFocus={(e) => e.target.select()}
+              onBlur={() => {
+                setListRenameInput(false);
+                setListRenameValue(list.title);
+              }}
+              autoFocus
+            ></input>
+          </form>
+        ) : (
+          <h5 className="list-title" onClick={() => setListRenameInput(true)}>
+            {listRenameValue}
+          </h5>
+        )}
         <span
           className="more-options-button small"
           onClick={(e) => {

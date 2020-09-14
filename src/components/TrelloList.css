@@ -55,3 +55,10 @@
 .more-options-button:active {
   background-color: #aaa;
 }
+
+.list-rename-form {
+  width: 87%;
+}
+.list-rename-input {
+  width: 100%;
+}
