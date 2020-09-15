@@ -27,7 +27,7 @@ function SecondaryNav() {
         <li className="nav-item">
           <div className="trans-buttons">
             <span id="boardName">Trello Clone</span>
-            <a className="nav-link" href="##">
+            <a className="nav-link ml-2" href="##">
               <i className="far fa-star"></i>
             </a>
           </div>
