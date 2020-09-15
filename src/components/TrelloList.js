@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TrelloCard from "./TrelloCard";
 import ListMenu from "./ListMenu";
 import "./TrelloList.css";
