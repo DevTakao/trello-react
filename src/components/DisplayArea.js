@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import TrelloList from "./TrelloList";
 import "./DisplayArea.css";
 import AddNewList from "./AddNewList";
 import NewListInput from "./NewListInput";
+import { UserLoading } from "../App";
 
-function DisplayArea({ setIsLoading }) {
+function DisplayArea() {
+  const { setIsLoading } = useContext(UserLoading);
   const [lists, setLists] = useState([]);
   const [showNewListInput, setShowNewListInput] = useState(false);
 
@@ -13,19 +15,17 @@ function DisplayArea({ setIsLoading }) {
     console.log("Lists Refreshed!");
     const fetchData = async () => {
       setIsLoading(true);
-      await axios
-        .get("https://trello-clone-ppm.herokuapp.com/list")
-        .then((res) => {
-          setLists(() => {
-            return [...lists, ...res.data];
-          });
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLists([]);
-          setIsLoading(false);
-        });
+      try {
+        const res = await axios.get(
+          "https://trello-clone-ppm.herokuapp.com/list"
+        );
+        setLists(res.data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setLists([]);
+        setIsLoading(false);
+      }
     };
     fetchData();
   }, []);
@@ -34,9 +34,10 @@ function DisplayArea({ setIsLoading }) {
       <div className="row">
         <div className="col-12">
           <div className="list-wrapper d-flex flex-row px-3">
-            {!!lists.length &&
+            {lists &&
+              lists.length > 0 &&
               lists.map(
-                (list) =>
+                list =>
                   list.status === 1 && (
                     <TrelloList
                       key={list.id}
@@ -46,7 +47,8 @@ function DisplayArea({ setIsLoading }) {
                     />
                   )
               )}
-            {!!lists.length &&
+            {lists &&
+              lists.length > 0 &&
               (showNewListInput ? (
                 <NewListInput
                   setShowNewListInput={setShowNewListInput}

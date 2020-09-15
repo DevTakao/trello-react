@@ -5,7 +5,7 @@ import { UserLoading } from "../App";
 import "./PrimaryNav.css";
 
 function PrimaryNav() {
-  const isLoading = useContext(UserLoading); //Consuming Loading Context
+  const { isLoading } = useContext(UserLoading); //Consuming Loading Context
 
   const [searchInput, setSearchInput] = useState("");
   return (
@@ -14,21 +14,21 @@ function PrimaryNav() {
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fas fa-th"></i>
+              <i className="fas fa-th" />
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fas fa-home"></i>
+              <i className="fas fa-home" />
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fab fa-trello"></i> Boards
+              <i className="fab fa-trello" /> Boards
             </a>
           </div>
         </li>
@@ -38,11 +38,11 @@ function PrimaryNav() {
               type="text"
               name="search"
               value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
+              onChange={e => setSearchInput(e.target.value)}
             />
-            <i className="fas fa-search showOnInit"></i>
-            <i className="fas fa-share showOnFocus"></i>
-            <i className="fas fa-times showOnFocus"></i>
+            <i className="fas fa-search showOnInit" />
+            <i className="fas fa-share showOnFocus" />
+            <i className="fas fa-times showOnFocus" />
           </div>
         </li>
       </ul>
@@ -55,7 +55,7 @@ function PrimaryNav() {
           style={{ display: "block" }}
           href="##"
         >
-          <i className="fab fa-trello"></i>Trello
+          <i className="fab fa-trello" />Trello
         </a>
       ) : (
         <Loader />
@@ -65,21 +65,21 @@ function PrimaryNav() {
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fas fa-plus"></i>
+              <i className="fas fa-plus" />
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fas fa-info-circle"></i>
+              <i className="fas fa-info-circle" />
             </a>
           </div>
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
             <a className="nav-link" href="##">
-              <i className="fas fa-bell"></i>
+              <i className="fas fa-bell" />
             </a>
           </div>
         </li>
