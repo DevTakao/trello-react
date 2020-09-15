@@ -5,7 +5,8 @@ import { UserLoading } from "../App";
 import "./PrimaryNav.css";
 
 function PrimaryNav() {
-  const isLoading = useContext(UserLoading);
+  const isLoading = useContext(UserLoading); //Consuming Loading Context
+
   const [searchInput, setSearchInput] = useState("");
   return (
     <nav className="navbar navbar-expand">
