@@ -37,7 +37,7 @@ function DisplayArea() {
             {lists &&
               lists.length > 0 &&
               lists.map(
-                list =>
+                (list) =>
                   list.status === 1 && (
                     <TrelloList
                       key={list.id}
@@ -47,18 +47,16 @@ function DisplayArea() {
                     />
                   )
               )}
-            {lists &&
-              lists.length > 0 &&
-              (showNewListInput ? (
-                <NewListInput
-                  setShowNewListInput={setShowNewListInput}
-                  currentListCount={lists.length}
-                  setLists={setLists}
-                  setIsLoading={setIsLoading}
-                />
-              ) : (
-                <AddNewList setShowNewListInput={setShowNewListInput} />
-              ))}
+            {showNewListInput ? (
+              <NewListInput
+                setShowNewListInput={setShowNewListInput}
+                currentListCount={lists.length}
+                setLists={setLists}
+                setIsLoading={setIsLoading}
+              />
+            ) : (
+              <AddNewList setShowNewListInput={setShowNewListInput} />
+            )}
           </div>
         </div>
       </div>
