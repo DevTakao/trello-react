@@ -1,3 +1,11 @@
+# Trello Clone Project
+
+This project is a Front-end Competent Level Project made at YTU Software Engineering Team to prove ReactJS knowledge.
+
+> Images utilized under Fair Use in this project do not belong to the author.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
