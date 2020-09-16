@@ -30,25 +30,24 @@ function ListMenu(props) {
   }, []);
 
   const archiveThisList = (_id) => {
-    if (window.confirm("Do you actually want to archive this list?")) {
+    if (window.confirm("Do you really want to archive this list?")) {
       requestArchiveList(_id);
     }
   };
 
   const requestArchiveList = async (_id) => {
     setIsLoading(true);
-    await Axios.put(
-      `https://trello-clone-ppm.herokuapp.com/list/${_id}/status/2`
-    )
-      .then((res) => {
-        console.log(res);
-        updateUI(_id);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoading(false);
-      });
+    try {
+      const res = await Axios.put(
+        `https://trello-clone-ppm.herokuapp.com/list/${_id}/status/2`
+      );
+      console.log(res);
+      updateUI(_id);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+    }
   };
 
   const updateUI = (_id) => {

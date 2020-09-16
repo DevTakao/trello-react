@@ -8,15 +8,16 @@ function SecondaryNav() {
   const [accounts, setAccounts] = useState([]);
   useEffect(() => {
     const fetchAccounts = async () => {
-      await axios
-        .get("https://trello-clone-ppm.herokuapp.com/account")
-        .then((res) => {
-          setAccounts([...res.data]);
-        })
-        .catch((err) => {
-          setAccounts([]);
-          console.log(err);
-        });
+      try {
+        const res = await axios.get(
+          "https://trello-clone-ppm.herokuapp.com/account"
+        );
+        console.log(res);
+        setAccounts([...res.data]);
+      } catch (err) {
+        console.log(err);
+        setAccounts([]);
+      }
     };
     fetchAccounts();
   }, []);

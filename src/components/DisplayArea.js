@@ -39,12 +39,7 @@ function DisplayArea() {
               lists.map(
                 (list) =>
                   list.status === 1 && (
-                    <TrelloList
-                      key={list.id}
-                      list={list}
-                      setLists={setLists}
-                      setIsLoading={setIsLoading}
-                    />
+                    <TrelloList key={list.id} list={list} setLists={setLists} />
                   )
               )}
             {showNewListInput ? (
@@ -52,7 +47,6 @@ function DisplayArea() {
                 setShowNewListInput={setShowNewListInput}
                 currentListCount={lists.length}
                 setLists={setLists}
-                setIsLoading={setIsLoading}
               />
             ) : (
               <AddNewList setShowNewListInput={setShowNewListInput} />

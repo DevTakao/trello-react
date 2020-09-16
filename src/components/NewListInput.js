@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "./NewListInput.css";
 import Axios from "axios";
+import { UserLoading } from "../App";
+import notEmptyInput from "../utils/notEmptyInput";
 
-function NewListInput({
-  setShowNewListInput,
-  currentListCount,
-  setLists,
-  setIsLoading,
-}) {
+function NewListInput({ setShowNewListInput, currentListCount, setLists }) {
+  const { setIsLoading } = useContext(UserLoading);
   const [newListInputValue, setNewListInputValue] = useState("");
 
   const NewListInputRef = useRef();
@@ -25,37 +23,34 @@ function NewListInput({
   }, []);
 
   const addNewList = () => {
-    if (validateInput(newListInputValue)) {
+    if (notEmptyInput(newListInputValue)) {
       requestNewList(newListInputValue, currentListCount);
     } else {
       alert("The input must not be empty.");
     }
   };
 
-  const validateInput = (str) => {
-    if (!!str.trim()) return true;
-    return false;
-  };
-
   const requestNewList = async (_title, _position) => {
     setIsLoading(true);
-    await Axios.post("https://trello-clone-ppm.herokuapp.com/list", {
-      title: _title,
-      position: _position + 1,
-      status: 1,
-    })
-      .then((res) => {
-        console.log(res);
-        setLists((prevState) => {
-          return [...prevState, res.data];
-        });
-        setShowNewListInput(false);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
+    try {
+      const res = await Axios.post(
+        "https://trello-clone-ppm.herokuapp.com/list",
+        {
+          title: _title,
+          position: _position + 1,
+          status: 1,
+        }
+      );
+      console.log(res);
+      setLists((prevState) => {
+        return [...prevState, res.data];
       });
+      setShowNewListInput(false);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   };
 
   return (

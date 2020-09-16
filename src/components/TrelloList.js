@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TrelloCard from "./TrelloCard";
 import ListMenu from "./ListMenu";
 import "./TrelloList.css";
 import Axios from "axios";
+import { UserLoading } from "../App";
 
-function TrelloList({ list, setLists, setIsLoading }) {
+function TrelloList({ list, setLists }) {
   const cards = list.cards || [];
+
+  const { setIsLoading } = useContext(UserLoading);
   const [openMenu, setOpenMenu] = useState(false);
   const [clickPosition, setClickPosition] = useState({});
   const [listRenameInput, setListRenameInput] = useState(false);
@@ -24,21 +27,23 @@ function TrelloList({ list, setLists, setIsLoading }) {
 
   const requestListRename = async (listName) => {
     setIsLoading(true);
-    await Axios.put(`https://trello-clone-ppm.herokuapp.com/list/${list.id}`, {
-      title: listName,
-      position: list.position,
-      status: 1,
-    })
-      .then((res) => {
-        console.log(res);
-        console.log("List Rename Successful!");
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoading(false);
-        setListRenameValue(list.title);
-      });
+    try {
+      const res = await Axios.put(
+        `https://trello-clone-ppm.herokuapp.com/list/${list.id}`,
+        {
+          title: listName,
+          position: list.position,
+          status: 1,
+        }
+      );
+      console.log(res);
+      console.log("List Rename Successful!");
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+      setListRenameValue(list.title);
+    }
   };
 
   return (
