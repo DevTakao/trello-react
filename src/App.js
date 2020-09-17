@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 import NavContainer from "./components/NavContainer";
 import DisplayArea from "./components/DisplayArea";
+import CardDetails from "./components/CardDetails";
 
 export const UserLoading = React.createContext({
   isLoading: false,
-  setIsLoading: () => {}
+  setIsLoading: () => {},
 });
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <UserLoading.Provider value={{ isLoading, setIsLoading }}>
         <NavContainer />
         <DisplayArea />
+        <CardDetails />
       </UserLoading.Provider>
     </div>
   );
