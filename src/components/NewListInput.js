@@ -74,8 +74,8 @@ function NewListInput({ setShowNewListInput, currentListCount, setLists }) {
           value={newListInputValue}
           onChange={(e) => setNewListInputValue(e.target.value)}
           style={{ margin: "auto" }}
-          autoFocus
           onKeyPress={(e) => handleKeyPress(e)}
+          autoFocus
         />
         <div className="d-flex flex-row mt-2 ml-1 py-1">
           <span
