@@ -2,6 +2,7 @@
   margin: 5em auto;
   width: 50%;
   height: auto;
+  border-radius: 0.25em;
 }
 
 #modal-root {
@@ -16,4 +17,32 @@
 
 #root {
   filter: brightness(75%);
+}
+
+.contentbox {
+  list-style-type: none;
+  margin-left: -0.5em;
+}
+.contentbox li {
+  line-height: 1em;
+}
+
+.label {
+  background-color: green;
+  cursor: pointer;
+  color: #ddd;
+  border-radius: 0.25em;
+}
+.label:hover {
+  filter: brightness(120%);
+  cursor: pointer;
+  color: #ddd;
+}
+.details-btn {
+  border: 2px solid transparent;
+  padding: 5px 10px;
+  border-radius: 0.25em;
+}
+.details-btn:hover {
+  background-color: wheat;
 }
