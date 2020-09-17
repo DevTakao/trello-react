@@ -18,13 +18,20 @@
 #root {
   filter: brightness(75%);
 }
-
-.contentbox {
-  list-style-type: none;
-  margin-left: -0.5em;
+.content-text {
+  margin-left: 2.5em;
 }
-.contentbox li {
-  line-height: 1em;
+.content-icon {
+  font-size: 1.5em;
+  cursor: default !important;
+  float: left;
+  width: 2em;
+}
+.attached-list {
+  text-decoration: underline;
+}
+.card-title {
+  text-indent: -0.5em;
 }
 
 .label {
@@ -32,17 +39,46 @@
   cursor: pointer;
   color: #ddd;
   border-radius: 0.25em;
+  padding: 0.1em 0.5em;
+  margin-right: 0.2em;
+  font-size: 0.9em;
+  color: #fff;
 }
 .label:hover {
   filter: brightness(120%);
   cursor: pointer;
-  color: #ddd;
 }
 .details-btn {
   border: 2px solid transparent;
-  padding: 5px 10px;
+  padding: 0.3em 0.6em;
   border-radius: 0.25em;
 }
 .details-btn:hover {
   background-color: wheat;
+}
+
+.desc-title {
+  text-indent: -0.55em;
+}
+.activity-title {
+  text-indent: -0.25em;
+}
+.comment-input {
+  padding: 0.3em 0.8em;
+  border: 1.5px solid grey;
+  width: 90%;
+}
+.comment-input:focus {
+  padding: 0.3em 0.8em;
+  border: 1.5px solid #029943;
+}
+.tiny-gear {
+  padding: 0.1em 0.2em;
+  font-size: 0.8em;
+}
+.dsb {
+  /* details side button */
+  margin-top: 0.4em;
+  text-align: left;
+  padding-left: 1em;
 }
