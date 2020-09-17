@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { createRef, useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CardView } from "../App";
 import "./CardDetails.css";
@@ -6,19 +6,28 @@ import "./CardDetails.css";
 function CardDetails() {
   const [commentValue, setCommentValue] = useState("");
   const setCardView = useContext(CardView);
+  const cardViewRef = createRef();
   useEffect(() => {
     document.getElementById("modal-root").classList.add("modal-root-render");
     document.getElementById("root").classList.add("root-darken");
+
+    const closeCardView = (e) => {
+      if (!cardViewRef.current.contains(e.target)) {
+        setCardView(false);
+      }
+    };
+    window.addEventListener("mousedown", closeCardView);
     return () => {
       document
         .getElementById("modal-root")
         .classList.remove("modal-root-render");
       document.getElementById("root").classList.remove("root-darken");
+      window.removeEventListener("mousedown", closeCardView);
     };
   }, []);
 
   return ReactDOM.createPortal(
-    <div className="CardDetails container-fluid p-4">
+    <div className="CardDetails container-fluid p-4" ref={cardViewRef}>
       <div className="row details-head mb-3">
         <div className="col-12">
           <i
