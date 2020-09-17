@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { CardView } from "../App";
 import "./CardDetails.css";
 
 function CardDetails() {
   const [commentValue, setCommentValue] = useState("");
+  const setCardView = useContext(CardView);
+  useEffect(() => {
+    document.getElementById("modal-root").classList.add("modal-root-render");
+    document.getElementById("root").classList.add("root-darken");
+    return () => {
+      document
+        .getElementById("modal-root")
+        .classList.remove("modal-root-render");
+      document.getElementById("root").classList.remove("root-darken");
+    };
+  }, []);
+
   return ReactDOM.createPortal(
     <div className="CardDetails container-fluid p-4">
       <div className="row details-head mb-3">
         <div className="col-12">
+          <i
+            className="fa fa-close card-close-btn"
+            onClick={() => setCardView(false)}
+          ></i>
           <i className="fa fa-credit-card content-icon"></i>
           <h5 className="card-title">Trello Clone (React)</h5>
           <p className="content-text">

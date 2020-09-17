@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CardView } from "../App";
 import "./TrelloCard.css";
 
 function TrelloCard({ card }) {
+  const setCardView = useContext(CardView);
   return (
-    <div className="trello-card p-2 pb-3 mb-2" onClick={() => {}}>
+    <div
+      className="trello-card p-2 pb-3 mb-2"
+      onClick={() => {
+        setCardView(true);
+      }}
+    >
       <span className="overlay-edit-button">
         <i className="fa fa-pencil" aria-hidden="true"></i>
       </span>
