@@ -1,5 +1,13 @@
 .CardDetails {
-  margin: auto;
+  margin: 5em auto;
   width: 50%;
   height: auto;
+}
+
+#modal-root {
+  overflow-y: auto;
+}
+
+#root {
+  filter: brightness(75%);
 }
