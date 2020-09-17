@@ -23,6 +23,7 @@ input {
   border-radius: 0.2em;
   border-color: none;
   border-style: solid;
+  background-color: #eee;
 }
 
 input:focus {

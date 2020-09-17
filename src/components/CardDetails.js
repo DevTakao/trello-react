@@ -5,7 +5,7 @@ import "./CardDetails.css";
 function CardDetails() {
   const [commentValue, setCommentValue] = useState("");
   return ReactDOM.createPortal(
-    <div className="CardDetails bg-light container-fluid p-4">
+    <div className="CardDetails container-fluid p-4">
       <div className="row details-head mb-3">
         <div className="col-12">
           <i className="fa fa-credit-card content-icon"></i>
@@ -60,15 +60,67 @@ function CardDetails() {
             />
           </div>
         </div>
-        <div className="col-3 d-flex flex-column">
+        <div className="col-3 d-flex flex-column details-side-sector">
           <div className="d-flex justify-content-between align-items-center">
-            <span>Suggested</span>
+            <span className="dsb-title">Suggested</span>
             <button className="details-btn tiny-gear">
               <i className="fa fa-gear"></i>
             </button>
           </div>
           <button className="details-btn dsb">
             <i className="fas fa-user"></i> Join
+          </button>
+          <a href="##" className="feedBack">
+            Feedback
+          </a>
+          <span className="dsb-title">Add To Card</span>
+          <button className="details-btn dsb">
+            <i className="fas fa-user-plus"></i> Members
+          </button>
+          <button className="details-btn dsb">
+            <i className="fas fa-tags"></i> Labels
+          </button>
+          <button className="details-btn dsb">
+            <i className="fa fa-check-square-o"></i> Checklist
+          </button>
+          <button className="details-btn dsb">
+            <i className="far fa-calendar-check"></i> Due Date
+          </button>
+          <button className="details-btn dsb">
+            <i className="fas fa-paperclip"></i> Attachment
+          </button>
+          <button className="details-btn dsb">
+            <i className="fa fa-photo"></i> Cover
+          </button>
+          <span className="dsb-title">Power-Ups</span>
+          <button className="details-btn dsb">
+            <i className="fas fa-concierge-bell"></i> Butler Tip (1)
+          </button>
+          <button className="details-btn dsb">
+            <i className="fa fa-github"></i> GitHub
+          </button>
+          <button className="details-btn dsb">
+            <i className="fa fa-plus"></i> Add Power-up ...
+          </button>
+          <span className="dsb-title">Actions</span>
+          <button className="details-btn dsb">
+            <i className="fas fa-arrow-right"></i> Move
+          </button>
+          <button className="details-btn dsb">
+            <i className="	far fa-copy"></i> Copy
+          </button>
+          <button className="details-btn dsb">
+            <i className="fas fa-file-import"></i> Make Template
+          </button>
+          <button className="details-btn dsb">
+            <i className="fas fa-eye"></i> Watch
+          </button>
+          <hr className="my-4"></hr>
+          <button className="details-btn dsb">
+            <i className="fas fa-file-archive"></i> Archive
+          </button>
+          <button className="details-btn dsb">
+            <i className="fas fa-share-alt"></i> Share
           </button>
         </div>
       </div>

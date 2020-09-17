@@ -1,8 +1,9 @@
 .CardDetails {
   margin: 5em auto;
-  width: 50%;
+  width: 55%;
   height: auto;
   border-radius: 0.25em;
+  background-color: #d6d6d6;
 }
 
 #modal-root {
@@ -18,6 +19,7 @@
 #root {
   filter: brightness(75%);
 }
+
 .content-text {
   margin-left: 2.5em;
 }
@@ -52,9 +54,10 @@
   border: 2px solid transparent;
   padding: 0.3em 0.6em;
   border-radius: 0.25em;
+  background-color: #e5e5e5;
 }
 .details-btn:hover {
-  background-color: wheat;
+  background-color: #f1f1f1;
 }
 
 .desc-title {
@@ -73,7 +76,7 @@
   border: 1.5px solid #029943;
 }
 .tiny-gear {
-  padding: 0.1em 0.2em;
+  padding: 0.1em 0.4em;
   font-size: 0.8em;
 }
 .dsb {
@@ -81,4 +84,35 @@
   margin-top: 0.4em;
   text-align: left;
   padding-left: 1em;
+  font-size: 0.8em;
+}
+.dsb-title {
+  margin-top: 2.5rem;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.dsb-title:first-child {
+  margin-top: 0;
+}
+.dsb i {
+  margin-right: 0.5em;
+}
+.feedBack {
+  text-align: center;
+  font-size: 0.7em;
+  text-decoration: underline;
+  color: #333;
+  margin-top: 0.1em;
+}
+.details-side-sector hr {
+  border: 0;
+  clear: both;
+  display: inline-block;
+  width: 100%;
+  background-color: #ddd;
+  height: 1px;
+  margin: 0 !important;
+  margin-top: 0.5em !important;
+  padding: 0 !important;
 }
