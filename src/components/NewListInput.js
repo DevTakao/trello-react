@@ -53,6 +53,12 @@ function NewListInput({ setShowNewListInput, currentListCount, setLists }) {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addNewList();
+    }
+  };
+
   return (
     <div
       className="align-self-start"
@@ -69,6 +75,7 @@ function NewListInput({ setShowNewListInput, currentListCount, setLists }) {
           onChange={(e) => setNewListInputValue(e.target.value)}
           style={{ margin: "auto" }}
           autoFocus
+          onKeyPress={(e) => handleKeyPress(e)}
         />
         <div className="d-flex flex-row mt-2 ml-1 py-1">
           <span
