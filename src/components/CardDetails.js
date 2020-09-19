@@ -77,13 +77,25 @@ function CardDetails() {
             </div>
           </div>
           <div className="comment-section mt-4">
-            <input
-              className="comment-input content-text"
-              type="text"
-              placeholder="Write a comment..."
-              value={commentValue}
-              onChange={(e) => setCommentValue(e.target.value)}
-            />
+            <div className="activity-head d-flex align-items-baseline">
+              <img
+                className="content-icon align-self-center"
+                src="https://w3schools.com/w3images/avatar2.png"
+                style={{
+                  width: "1.4em",
+                  marginLeft: "-0.2em",
+                  borderRadius: "50%",
+                }}
+                alt="avatar"
+              />
+              <input
+                className="comment-input"
+                type="text"
+                placeholder="Write a comment..."
+                value={commentValue}
+                onChange={(e) => setCommentValue(e.target.value)}
+              />
+            </div>
           </div>
         </div>
         <div className="col-3 d-flex flex-column details-side-sector">

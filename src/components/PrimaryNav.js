@@ -38,7 +38,7 @@ function PrimaryNav() {
               type="text"
               name="search"
               value={searchInput}
-              onChange={e => setSearchInput(e.target.value)}
+              onChange={(e) => setSearchInput(e.target.value)}
             />
             <i className="fas fa-search showOnInit" />
             <i className="fas fa-share showOnFocus" />
@@ -55,7 +55,8 @@ function PrimaryNav() {
           style={{ display: "block" }}
           href="##"
         >
-          <i className="fab fa-trello" />Trello
+          <i className="fab fa-trello" />
+          Trello
         </a>
       ) : (
         <Loader />
@@ -85,9 +86,16 @@ function PrimaryNav() {
         </li>
         <li className="nav-item">
           <div className="trans-buttons">
-            <a href="##" style={{ border: "none", display: "block" }}>
+            <a
+              href="##"
+              style={{
+                border: "none",
+                display: "block",
+                backgroundColor: "transparent",
+              }}
+            >
               <img
-                src="https://www.w3schools.com/howto/img_avatar.png"
+                src="https://w3schools.com/w3images/avatar2.png"
                 style={{ height: "100%", borderRadius: "50%" }}
                 alt="avatar"
               />
