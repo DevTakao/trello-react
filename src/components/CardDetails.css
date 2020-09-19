@@ -79,6 +79,7 @@
   padding: 0.3em 0.8em;
   border: 1.5px solid grey;
   width: 90%;
+  margin-left: 0.7em;
 }
 .comment-input:focus {
   padding: 0.3em 0.8em;
